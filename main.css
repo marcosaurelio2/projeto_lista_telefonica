@@ -120,6 +120,21 @@ tfoot td {
     background-color: #115293; /* Muda a cor ao passar o mouse */
 }
 
+/* Seção de favoritar */
+#favoritarSection {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f1f8e9; /* Fundo suave para a seção de favoritar */
+    border: 1px solid #c5e1a5; /* Borda suave */
+    border-radius: 5px;
+}
+
+/* Estilo da imagem de favorito */
+.favorito {
+    width: 20px; /* Ajuste o tamanho da imagem favorita */
+    height: 20px; 
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     form {
@@ -137,4 +152,36 @@ tfoot td {
     table th, table td {
         font-size: 0.9rem; 
     }
+}
+/* Estilo dos botões de favoritar */
+#favoritarSection button {
+    padding: 10px 20px; /* Tamanho do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar interatividade */
+    font-size: 1rem; /* Tamanho da fonte */
+    margin: 5px; /* Margem entre os botões */
+    transition: background-color 0.3s, transform 0.2s; /* Transições suaves */
+}
+
+/* Estilo do botão "Sim" */
+#favoritarSim {
+    background-color: #4caf50; /* Verde para o botão "Sim" */
+    color: white; /* Texto branco */
+}
+
+#favoritarSim:hover {
+    background-color: #388e3c; /* Verde escuro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+}
+
+/* Estilo do botão "Não" */
+#favoritarNao {
+    background-color: #f44336; /* Vermelho para o botão "Não" */
+    color: white; /* Texto branco */
+}
+
+#favoritarNao:hover {
+    background-color: #c62828; /* Vermelho escuro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
 }

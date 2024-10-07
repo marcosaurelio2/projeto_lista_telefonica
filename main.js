@@ -1,29 +1,42 @@
 const form = document.getElementById('form-cont');
 const corpoTabela = document.querySelector('tbody');
 const numAdcElement = document.getElementById('numAdc');
+const favoritarSection = document.getElementById('favoritarSection');
+let inputNome, inputNumero;
 
 // Adiciona evento de submit no formulário
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const inputNome = document.getElementById('nameCont').value.trim();
-    const inputNumero = document.getElementById('numCont').value.trim();
-
-    const isFavorito = document.querySelector('#favorito-checkbox').checked; // Verifica se o checkbox está marcado
+    inputNome = document.getElementById('nameCont').value.trim();
+    inputNumero = document.getElementById('numCont').value.trim();
 
     if (inputNome && inputNumero) {
-        adicionarLinhaTabela(inputNome, inputNumero, isFavorito);
-        atualizarTotalContatos();
-        limparCampos();
+        favoritarSection.style.display = 'block'; // Exibe a seção de favoritar
     }
+});
+
+// Eventos para as opções de favoritar
+document.getElementById('favoritarSim').addEventListener('click', function() {
+    adicionarLinhaTabela(inputNome, inputNumero, true);
+    atualizarTotalContatos();
+    limparCampos();
+    favoritarSection.style.display = 'none'; // Oculta a seção de favoritar
+});
+
+document.getElementById('favoritarNao').addEventListener('click', function() {
+    adicionarLinhaTabela(inputNome, inputNumero, false);
+    atualizarTotalContatos();
+    limparCampos();
+    favoritarSection.style.display = 'none'; // Oculta a seção de favoritar
 });
 
 // Função para adicionar a linha na tabela
 function adicionarLinhaTabela(nome, numero, isFavorito) {
     const linha = document.createElement('tr');
-
+    
     const favoritoImg = isFavorito ? `<img src="./favorito.png.png" alt="Favorito" class="favorito">` : '';
-
+    
     linha.innerHTML = `
         <td>${nome}</td>
         <td>${numero}</td>
