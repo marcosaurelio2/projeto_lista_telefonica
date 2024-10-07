@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Telefônica</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://thumbs.dreamstime.com/b/minimalist-cartoon-phone-illustration-white-background-283902955.jpg" alt="Logo de telefone">
+            <h1>Lista Telefônica</h1>
+        </header>
+        <form id="form-cont">
+            <input type="tel" id="numCont" placeholder="Número do contato" required />
+            <input id="nameCont" type="text" placeholder="Nome do contato" required />
+            <button type="submit" id="myBtn">Cadastrar</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Contato</th>
+                    <th>Telefone do Contato</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td>Total de Contatos</td>
+                    <td id="numAdc"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button id="limparBtn">Limpar</button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
+
