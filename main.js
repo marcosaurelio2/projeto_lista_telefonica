@@ -8,10 +8,8 @@ form.addEventListener('submit', function(e) {
 
     const inputNome = document.getElementById('nameCont').value.trim();
     const inputNumero = document.getElementById('numCont').value.trim();
-    
-    // Pergunta ao usuário se deseja favoritar
-    const favoritarCont = confirm("Deseja favoritar?");
-    const isFavorito = favoritarCont; // Armazena a resposta do usuário
+
+    const isFavorito = document.querySelector('#favorito-checkbox').checked; // Verifica se o checkbox está marcado
 
     if (inputNome && inputNumero) {
         adicionarLinhaTabela(inputNome, inputNumero, isFavorito);
@@ -23,9 +21,9 @@ form.addEventListener('submit', function(e) {
 // Função para adicionar a linha na tabela
 function adicionarLinhaTabela(nome, numero, isFavorito) {
     const linha = document.createElement('tr');
-    
+
     const favoritoImg = isFavorito ? `<img src="./favorito.png" alt="Favorito" class="favorito">` : '';
-    
+
     linha.innerHTML = `
         <td>${nome}</td>
         <td>${numero}</td>
