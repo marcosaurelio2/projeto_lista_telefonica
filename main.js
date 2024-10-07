@@ -22,7 +22,7 @@ form.addEventListener('submit', function(e) {
 function adicionarLinhaTabela(nome, numero, isFavorito) {
     const linha = document.createElement('tr');
 
-    const favoritoImg = isFavorito ? `<img src="./favorito.png" alt="Favorito" class="favorito">` : '';
+    const favoritoImg = isFavorito ? `<img src="./favorito.png.png" alt="Favorito" class="favorito">` : '';
 
     linha.innerHTML = `
         <td>${nome}</td>
