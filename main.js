@@ -7,23 +7,35 @@ form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const inputNome = document.getElementById('nameCont').value.trim();
-    const inputNumero = document.getElementById('numCont').value.trim(); // Como número de telefone é uma string
+    const inputNumero = document.getElementById('numCont').value.trim();
+    const isFavorito = document.getElementById('favoritarCont').checked; // Verifica se o checkbox está marcado
 
     if (inputNome && inputNumero) {
-        adicionarLinhaTabela(inputNome, inputNumero);
+        adicionarLinhaTabela(inputNome, inputNumero, isFavorito);
         atualizarTotalContatos();
         limparCampos();
     }
 });
 
 // Função para adicionar a linha na tabela
-function adicionarLinhaTabela(nome, numero) {
+function adicionarLinhaTabela(nome, numero, isFavorito) {
     const linha = document.createElement('tr');
+    
+    // Se o contato é favorito, exibe o ícone de favorito
+    const favoritoImg = isFavorito ? `<img src="./favorito.png" alt="Favorito" class="favorito">` : '';
+    
     linha.innerHTML = `
         <td>${nome}</td>
         <td>${numero}</td>
+        <td>${favoritoImg}</td>
     `;
-    corpoTabela.appendChild(linha);
+
+    // Adiciona a nova linha ao início da tabela se for favorito, senão adiciona ao final
+    if (isFavorito) {
+        corpoTabela.insertBefore(linha, corpoTabela.firstChild);
+    } else {
+        corpoTabela.appendChild(linha);
+    }
 }
 
 // Função para atualizar total de contatos
